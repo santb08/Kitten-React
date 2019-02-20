@@ -8,7 +8,8 @@
     "@material-ui/core": "3.9.2",
     "react": "16.8.0",
     "react-dom": "16.8.0",
-    "react-scripts": "2.0.3"
+    "react-scripts": "2.0.3",
+    "react-swipeable-views": "0.13.1"
   },
   "devDependencies": {},
   "scripts": {
