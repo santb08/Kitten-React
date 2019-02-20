@@ -85,10 +85,10 @@ class UserStatus extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <ChatList />
+            <Profile />
           </TabContainer>
           <TabContainer dir={theme.direction}>
-            <Profile />
+            <ChatList />
           </TabContainer>
         </SwipeableViews>
       </div>

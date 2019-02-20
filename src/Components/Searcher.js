@@ -4,10 +4,11 @@
  * This class has is in charge of handle the user decissions
  */
 import React, { Component } from "react";
+import SearchInfo from "./SearchInfo.js";
 
 class Searcher extends Component {
   render() {
-    return <h1>Hola desde el searcher que simulará la búsquedaaaa</h1>;
+    return <SearchInfo />;
   }
 }
 
