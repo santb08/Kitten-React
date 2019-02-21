@@ -6,6 +6,14 @@
  */
 import React, { Component } from "react";
 
+/**
+ * TODO
+ * Importar helper randomCat.js
+ * Con ese helper, mostrar la imagen del gatito, el nombre, y un par de gustos aleatorios
+ * Puede crear otro archivo en el data con datos falsos y mostrarlos aleatoriamente
+ * Básese en la documentación de material-ui
+ */
+
 class Profile extends Component {
   render() {
     return <h1>Hola desde el perfil del gatito</h1>;

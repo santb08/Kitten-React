@@ -12,6 +12,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 //Colors
 import deepPurple from "@material-ui/core/colors/deepPurple";
@@ -32,7 +33,8 @@ function TabContainer({ children, dir }) {
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500
+    maxHeight: 620,
+    overflow: "auto"
   },
   tabs: {
     backgroundColor: deepPurple[200],
@@ -40,6 +42,14 @@ const styles = theme => ({
   },
   indicator: {
     backgroundColor: yellow[300]
+  },
+  userStatusContainer: {
+    maxHeight: "100%",
+    overflow: "auto"
+  },
+  chatContainer: {
+    overflow: "visible",
+    height: "50%"
   }
 });
 
@@ -78,19 +88,23 @@ class UserStatus extends React.Component {
             />
           </Tabs>
         </AppBar>
-
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={this.state.value}
-          onChangeIndex={this.handleChangeIndex}
-        >
-          <TabContainer dir={theme.direction}>
-            <Profile />
-          </TabContainer>
-          <TabContainer dir={theme.direction}>
-            <ChatList />
-          </TabContainer>
-        </SwipeableViews>
+        <div className={classes.userStatusContainer}>
+          <SwipeableViews
+            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+            index={this.state.value}
+            onChangeIndex={this.handleChangeIndex}
+          >
+            <TabContainer dir={theme.direction} style="overflow: visible;">
+              <Profile />
+            </TabContainer>
+            <TabContainer dir={theme.direction}>
+              <React.Fragment>
+                <CssBaseline />
+                <ChatList matches={this.props.matches} />
+              </React.Fragment>
+            </TabContainer>
+          </SwipeableViews>
+        </div>
       </div>
     );
   }
