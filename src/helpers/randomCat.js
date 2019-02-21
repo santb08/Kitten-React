@@ -1,4 +1,5 @@
 import Names from "../data/names.js";
+import hobbies from "../data/hobbies.js";
 
 function getRandomNumber(inf = 1, sup = 20) {
   return Math.floor(Math.random() * sup) + inf;
@@ -6,6 +7,11 @@ function getRandomNumber(inf = 1, sup = 20) {
 
 function getName() {
   return Names[getRandomNumber(0, Names.length)];
+}
+
+function getHobbies(){
+  var Hobbie=[hobbies[getRandomNumber(0,hobbies.length)],hobbies[getRandomNumber(0,hobbies.length)],hobbies[getRandomNumber(0,hobbies.length)]];
+  return Hobbie;
 }
 
 const callCatAPI = async () => {
