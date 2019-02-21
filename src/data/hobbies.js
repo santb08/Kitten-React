@@ -21,4 +21,4 @@ export default[
     "Stalking",
     "tongue baths",
     "yoga"        
-]
+];
