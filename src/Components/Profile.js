@@ -6,6 +6,18 @@
  */
 import React, { Component } from "react";
 import helper from "../helpers/randomCat"
+import { withStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+
+const styles = {
+    avatar: {
+        margin: "auto",
+        width: 480,
+        height: 440,
+    }
+};
+
+
 /**
  * TODO
  * Importar helper randomCat.js
@@ -15,21 +27,37 @@ import helper from "../helpers/randomCat"
  */
 
 class Profile extends Component {
-  render() {
-    const name = helper.getName();
-    const hobbies = helper.getHobbies();
-    let image = '';
-    helper.getImage().then(value => {
-      image = value[0].url;
-      });
-    return (
-      <div>
-        <h1>{name}</h1>
-        <img src={image}/>
-        <p>{`My hobbies: ${hobbies[0]}, ${hobbies[1]} and ${hobbies[2]}.`}</p>
-      </div>
-    );
-  }
+    state = {
+        name: "...",
+        image: "OA",
+        hobbies: "..."
+    };
+
+    componentDidMount(){
+        const name = helper.getName();
+        const hobbies = helper.getHobbies();
+        let image = '';
+        helper.getImage().then(value => {
+            image = value[0].url;
+            this.setState({
+                name,
+                hobbies,
+                image
+            });
+        });
+    }
+
+    render() {
+        const { name, image, hobbies } = this.state;
+        const { classes } = this.props;
+        return (
+            <div>
+                <h1>{name}</h1>
+                <Avatar alt={name} src={image} className={classes.avatar} />
+                <p>{`Your hobbies: ${hobbies[0]}, ${hobbies[1]} and ${hobbies[2]}.`}</p>
+            </div>
+        );
+      }
 }
 
-export default Profile;
+export default withStyles(styles)(Profile);
