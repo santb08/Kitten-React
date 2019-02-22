@@ -8,6 +8,11 @@ import Grid from "@material-ui/core/Grid";
 import UserStatus from "./Components/UserStatus.js";
 import SearchResult from "./Components/SearchResult.js";
 
+const status = {
+  name: '',
+  image: ''
+}
+
 const styles = theme => ({
   root: {
     height: "100%",

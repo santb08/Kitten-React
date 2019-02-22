@@ -1,11 +1,14 @@
 import Names from "../data/names.js";
+import App from "../App"
 
 function getRandomNumber(inf = 1, sup = 20) {
   return Math.floor(Math.random() * sup) + inf;
 }
 
 function getName() {
-  return Names[getRandomNumber(0, Names.length)];
+  App.status = Names[getRandomNumber(0, Names.length)];
+  console.log(App.status);
+  return App.status;
 }
 
 const callCatAPI = async () => {

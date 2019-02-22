@@ -5,7 +5,6 @@
  *  Location
  */
 import React, { Component } from "react";
-
 /**
  * TODO
  * Importar helper randomCat.js
@@ -14,11 +13,17 @@ import React, { Component } from "react";
  * Básese en la documentación de material-ui
  */
 
- import {helper} from "../helpers/randomCat.js"
 
-class Profile extends Component {
+class Profile extends Component {  
   render() {
-    return <h1>Hola desde el perfil del gatito</h1>;
+    const {name, image} = this.props;
+    return (
+      <div>
+        <img src={`${image}`}/>
+        <h1>{name}</h1>
+        <p>Gustos aleatorios del gato</p>
+      </div>
+    );
   }
 }
 
