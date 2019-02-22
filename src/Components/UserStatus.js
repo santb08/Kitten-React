@@ -98,7 +98,7 @@ class UserStatus extends React.Component {
             onChangeIndex={this.handleChangeIndex}
           >
             <TabContainer dir={theme.direction} style="overflow: visible;">
-              <Profile matches={this.props.state}/>
+              <Profile name = {App.kittyName}/>
             </TabContainer>
             <TabContainer dir={theme.direction}>
               <React.Fragment>

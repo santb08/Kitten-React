@@ -6,9 +6,9 @@ function getRandomNumber(inf = 1, sup = 20) {
 }
 
 function getName() {
-  App.status = Names[getRandomNumber(0, Names.length)];
-  console.log(App.status);
-  return App.status;
+  App.kittyName = Names[getRandomNumber(0, Names.length)];
+  console.log(App.kittyName)
+  return App.kittyName;
 }
 
 const callCatAPI = async () => {

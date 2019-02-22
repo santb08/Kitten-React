@@ -12,15 +12,16 @@ import React, { Component } from "react";
  * Puede crear otro archivo en el data con datos falsos y mostrarlos aleatoriamente
  * Básese en la documentación de material-ui
  */
-
+ import App from "../App"
 
 class Profile extends Component {  
   render() {
-    const {name, image} = this.props;
+    const {kittyName} = App;
+    console.log(kittyName);
     return (
       <div>
-        <img src={`${image}`}/>
-        <h1>{name}</h1>
+        <img src={``}/>
+        <h1>{kittyName}</h1>
         <p>Gustos aleatorios del gato</p>
       </div>
     );
