@@ -10,7 +10,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import LikeIcon from "@material-ui/icons/Favorite";
 import DislikeIcon from "@material-ui/icons/Clear";
-import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Slide from "@material-ui/core/Slide";
 
@@ -28,7 +27,7 @@ const styles = theme => ({
     position: "relative"
   },
   media: {
-    paddingTop: "50%", //"56.25%" // 16:9,
+    paddingTop: "65%", //"56.25%" // 16:9,
     overflow: "hidden"
   }
 });
@@ -38,7 +37,8 @@ class SearchResult extends React.Component {
     name: "...",
     image:
       "https://cdn-images-1.medium.com/max/1600/1*9EBHIOzhE1XfMYoKz1JcsQ.gif",
-    distance: "..."
+    distance: "...",
+    hobbies: "..."
   };
   state = {
     liked: false,
@@ -54,7 +54,7 @@ class SearchResult extends React.Component {
       this.setState({ searchStatus: this.defaultSearching });
     };
 
-    new Promise((resolve, reject) => {
+    new Promise((resolve) => {
       resolve(showAnimation());
     })
       .then(() => {
@@ -88,13 +88,16 @@ class SearchResult extends React.Component {
     let image = "OA";
     const name = randomCat.getName();
     const distance = `${randomCat.getRandomDistance} km of distance`;
+    const hobbiesAux = randomCat.getHobbies();
+    const hobbies = `I like ${hobbiesAux[0]}, ${hobbiesAux[1]} and ${hobbiesAux[2]}`;
     randomCat.getImage().then(value => {
       image = value[0].url;
       this.setState({
         searchStatus: {
           image,
           name,
-          distance
+          distance,
+          hobbies
         }
       });
     });
@@ -130,7 +133,7 @@ class SearchResult extends React.Component {
           />
         </Slide>
         <CardContent>
-          <Typography component="p">{this.state.searchStatus.name}</Typography>
+          <Typography component="p">{this.state.searchStatus.hobbies}</Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
           <IconButton aria-label="Like" onClick={this.handleLike}>
