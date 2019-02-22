@@ -44,6 +44,7 @@ const callCatAPI = async () => {
  */
 export default {
   getName: getName,
+  getHobbies: getHobbies,
   getImage: callCatAPI,
   getRandomDistance: getRandomNumber(1, 20),
   getHobbies: getHobbies
