@@ -12,8 +12,8 @@ import Avatar from '@material-ui/core/Avatar';
 const styles = {
     avatar: {
         margin: "auto",
-        width: 480,
-        height: 440,
+        width: 300,
+        height: 280,
     }
 };
 
