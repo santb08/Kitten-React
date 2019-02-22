@@ -21,6 +21,7 @@ import yellow from "@material-ui/core/colors/yellow";
 //Components
 import ChatList from "./ChatList.js";
 import Profile from "./Profile.js";
+import App from "../App"
 
 function TabContainer({ children, dir }) {
   return (
@@ -55,7 +56,9 @@ const styles = theme => ({
 
 class UserStatus extends React.Component {
   state = {
-    value: 0
+    value: 0,
+    name: '',
+    image: ''
   };
 
   handleChange = (event, value) => {
@@ -95,7 +98,7 @@ class UserStatus extends React.Component {
             onChangeIndex={this.handleChangeIndex}
           >
             <TabContainer dir={theme.direction} style="overflow: visible;">
-              <Profile />
+              <Profile name = {App.kittyName}/>
             </TabContainer>
             <TabContainer dir={theme.direction}>
               <React.Fragment>
