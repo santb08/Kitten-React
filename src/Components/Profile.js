@@ -5,7 +5,7 @@
  *  Location
  */
 import React, { Component } from "react";
-
+import helper from "../helpers/randomCat"
 /**
  * TODO
  * Importar helper randomCat.js
@@ -16,7 +16,19 @@ import React, { Component } from "react";
 
 class Profile extends Component {
   render() {
-    return <h1>Hola desde el perfil del gatito</h1>;
+    const name = helper.getName();
+    const hobbies = helper.getHobbies();
+    let image = '';
+    helper.getImage().then(value => {
+      image = value[0].url;
+      });
+    return (
+      <div>
+        <h1>{name}</h1>
+        <img src={image}/>
+        <p>{`My hobbies: ${hobbies[0]}, ${hobbies[1]} and ${hobbies[2]}.`}</p>
+      </div>
+    );
   }
 }
 
